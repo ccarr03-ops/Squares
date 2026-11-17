@@ -14,7 +14,7 @@ function getRandomColor(){
     let possibleLetter = "0123456789ABCDEF";
     let color = "#";
 
-    for(let i = 1; i < 6; i++){
+    for(let i = 0; i < 6; i++){
         let postiton = parseInt(Math.random()*possibleLetter.length)
 
         color+=possibleLetter.charAt(postiton);
