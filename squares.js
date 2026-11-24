@@ -14,11 +14,19 @@ function square(){
     square.style.width = parseInt(Math.random()*(55-25)+ 25)+"px"
     squareArea.append(square);
 
-    //Changes Colors
+//Changes Colors
     colors.addEventListener("click", ()=> {
     square.style.backgroundColor = getRandomColor();
 });
 
+//lifts the square to the top of the z axis on click and deletes it on click again.
+square.addEventListener("click",()=>{
+    square.style.zIndex = 9999;
+
+    square.addEventListener("click", ()=>{
+        square.remove()
+    });
+});
 }
 
 //creates the amount of squares equal to squareCount
