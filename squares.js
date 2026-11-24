@@ -1,23 +1,31 @@
 let squareArea = document.querySelector("#squarearea");
 let createSquare = document.querySelector("#added");
+let colors = document.querySelector("#color");
 let squareCount = parseInt(Math.random()*21)+30;
 
-for(let i = 0; i < squareCount; i++){
+function square(){
     let square = document.createElement("div");
     square.className = "square";
     square.style.backgroundColor = getRandomColor();
     square.style.top = parseInt(Math.random()*(300-50))+"px"
     square.style.left = parseInt(Math.random()*(700-50))+"px"
     squareArea.append(square);
+
+    //Changes Colors
+    colors.addEventListener("click", ()=> {
+    square.style.backgroundColor = getRandomColor();
+});
+
 }
 
+//creates the amount of squares equal to squareCount
+for(let i = 0; i < squareCount; i++){
+    square();
+}
+
+//creates a new square
 createSquare.addEventListener("click", ()=>{
-   let square = document.createElement("div");
-    square.className = "square";
-    square.style.backgroundColor = getRandomColor();
-    square.style.top = parseInt(Math.random()*(300-50))+"px"
-    square.style.left = parseInt(Math.random()*(700-50))+"px"
-    squareArea.append(square);
+   square();
 });
 
 function getRandomColor(){
